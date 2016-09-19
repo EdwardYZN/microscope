@@ -19,8 +19,7 @@ Package.onUse(function(api,where) {
 });
 
 Package.onTest(function(api) {
-  api.use('ecmascript');
-  api.use('tinytest');
-  api.use('tmeasday:errors');
-  api.mainModule('errors-tests.js');
+  api.use(['templating','tinytest','test-helpers'],'client');
+  api.use('tmeasday:errors','client');
+  api.addFiles('errors_tests.js','client');
 });
