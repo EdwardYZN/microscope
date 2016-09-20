@@ -1,5 +1,5 @@
 Meteor.publish('posts', function(options) {
-  check(options, {
+  check(options,{
   	sort: Object,
 	limit: Number
   });
