@@ -21,4 +21,4 @@ Bitly.shortenURL=function(url){
 	}else{
 		throw new Meteor.Error(500, "Bitly call failed with error: "+shortenResponse.status_txt);
 	}
-};
+}
