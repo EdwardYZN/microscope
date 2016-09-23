@@ -1,6 +1,12 @@
-window.intercomSettings = {
-    app_id: "oacjoxyi",
-    name: "John Doe", // Full name
-    email: "john.doe@example.com", // Email address
-    created_at: 1312182000 // Signup date as a Unix timestamp
-};
+Tracker.autorun(function(){
+  if (Meteor.user() && !Meteor.loggingIn()) {
+    var intercomSettings = {
+      name: Meteor.user().username,
+      email: Meteor.user().emails[0].address,
+      created_at: Math.round(Meteor.user().createdAt/1000),
+      favorite_color: _.sample(['blue','red','green','yellow']),
+      app_id: "oacjoxyi"
+    };
+    Intercom('boot', intercomSettings);
+  }
+});
